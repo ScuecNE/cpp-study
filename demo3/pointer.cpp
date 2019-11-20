@@ -1,7 +1,9 @@
 #include <iostream>
 
 using namespace std;
+
 const int MAX = 3;
+double getAvg(int *ptr, int size);
 
 int main() {
     int arr[MAX] = {100, 200, 300};
@@ -19,5 +21,18 @@ int main() {
         cout << arrP[i] << endl;
     }
     
+    double avg = getAvg(arr, MAX);
+    cout << "avg:" << avg << endl;
     return 0;
+}
+
+double getAvg(int *ptr, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += *ptr;
+        ptr++;
+    }
+    
+    double avg = ((double) sum) / size;
+    return avg;
 }
