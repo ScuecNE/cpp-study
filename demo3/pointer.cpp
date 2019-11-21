@@ -1,9 +1,19 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
 const int MAX = 3;
 double getAvg(int *ptr, int size);
+
+int * getArr(int count, int *arr) {
+    srand((unsigned) time(NULL));
+    for (int i = 0; i < count; i++) {
+        *(arr + i) = rand();
+    }
+    return arr;
+}
 
 int main() {
     int arr[MAX] = {100, 200, 300};
@@ -23,6 +33,14 @@ int main() {
     
     double avg = getAvg(arr, MAX);
     cout << "avg:" << avg << endl;
+
+    int *outArr;
+    getArr(MAX, outArr);
+    for (int i = 0; i < MAX; i++) {
+        cout << "outArr:" << *outArr << endl;
+        outArr ++;
+    }
+    
     return 0;
 }
 
